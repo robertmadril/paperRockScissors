@@ -11,12 +11,51 @@
 
   var database = firebase.database();
 
+  var player1 = false;
+  var player2 = false;
+
+
+  $(".submit-btn").on("click", function(event){
+      event.preventDefault();
+      var name = $("#name-input").val().trim();
+      console.log(name);
+
+      if(player1 && !player2) {
+        var p2Object = {
+            playerName: name,
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+        database.ref().push(p2Object);
+        player2 = true;
+        $("#form-display").css("display", "none");
+
+    }
+
+      if(!player1 && !player2) {
+        var p1Object = {
+            playerName: name,
+            wins: 0,
+            losses: 0,
+            ties: 0
+        }
+
+        database.ref().push(p1Object);
+        player1 = true;
+      } 
+
+  })
+
+  $(".p2").on("click", function(event){
+      
+  })
   /*
 
-  Both players join by inputting the name in their field.
   They will only have access to one player side.
   when player-one class on.click's the value will be sent to db. p2 will not see selection.
-  when player-two class on.click's the value will be sent to db and winner will display.
+  when player-two class on.click's the value will be sent to db
+  winner will display.
   New game will start when both p1 and p2 have selected new game
 
   */
