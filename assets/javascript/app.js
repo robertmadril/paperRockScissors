@@ -47,15 +47,31 @@
 
   })
 
-  $(".p2").on("click", function(event){
-      
+  $(".p1").on("click", function(){
+
+    var choice1 = $(this).attr("data-value");
+    console.log(choice1);
+    //value sent to database (ntk how to select first or second child)
+    //option appears for p2
   })
+
+  $(".p2").on("click", function(event){
+    var choice2 = $(this).attr("data-value");
+    console.log(choice2);
+    //value sent to database (ntk how to select first or second child)
+    //game winner function
+})
+
+function winCheck() {
+    //conditionals to check winner
+    //display winner
+    //new game in 5 seconds
+}
+
+
   /*
 
   They will only have access to one player side.
-  when player-one class on.click's the value will be sent to db. p2 will not see selection.
-  when player-two class on.click's the value will be sent to db
-  winner will display.
-  New game will start when both p1 and p2 have selected new game
+  If player disconnects, 
 
   */
